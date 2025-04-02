@@ -23,10 +23,13 @@ body,
 }
 
 .page-container {
-  padding: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
 
-  @media (max-width: 372px) {
-    padding: 8px;
+  @media (min-width: 768px) {
+    padding: 20px 40px;
   }
 }
 
@@ -34,6 +37,7 @@ body,
   position: absolute;
   height: 100px;
 }
+
 .scroll-to-top-button {
   position: fixed;
   z-index: 10;
@@ -62,4 +66,20 @@ body,
 .slide-enter-from,
 .slide-leave-to {
   transform: translateY(100px);
+}
+
+/** pseudo-tailwind **/
+
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }

@@ -17,14 +17,15 @@ export type ApiOptions = {
 }
 
 export type Product = {
-  id: string | number
+  id: number
   title: string
+  description: string
   price: number
   thumbnail: string
   discountPercentage: number
   rating: number
   stock: number
-  category: string
+  tags: Array<string>
   availabilityStatus: string
 }
 

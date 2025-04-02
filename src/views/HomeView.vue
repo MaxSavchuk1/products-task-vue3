@@ -1,15 +1,7 @@
-<script setup lang="ts">
-import { useProductsStore } from '@/stores/products'
-
-const { products } = storeToRefs(useProductsStore())
-
-onMounted(() => {
-  useProductsStore().fetchProducts()
-})
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div class="welcome-banner">
-    <span>Vue 3 example project with TypeScript</span>
+  <div class="page-container">
+    <products-list />
   </div>
 </template>

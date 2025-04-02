@@ -3,7 +3,7 @@ const route = useRoute()
 const { isLoading } = storeToRefs(useLoaderStore())
 
 const target = ref(null)
-const targetIsVisible = ref(false)
+const targetIsVisible = ref(true)
 
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -22,9 +22,12 @@ useIntersectionObserver(target, ([{ isIntersecting }]) => {
   </component>
 
   <teleport to="body">
+    <!-- loader -->
     <div v-if="isLoading" class="loader-wrapper">
       <div class="loader"></div>
     </div>
+
+    <!-- scroll to top button -->
     <transition name="slide">
       <div
         v-if="!isLoading && !targetIsVisible"

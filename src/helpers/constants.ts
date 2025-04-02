@@ -5,11 +5,12 @@ export const PRODUCTS_FETCH_LIMIT = 15
 export const PRODUCTS_SELECTED_FIELDS = [
   'id',
   'title',
+  'description',
   'price',
   'discountPercentage',
   'thumbnail',
   'availabilityStatus',
   'stock',
-  'category',
+  'tags',
   'rating'
 ]
