@@ -7,20 +7,19 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="products-list">
-    <product v-for="product in products" :key="product.id" :product="product" />
+  <div class="list">
+    <h2>Products</h2>
+
+    <div v-if="products.length" class="list-items">
+      <product
+        v-for="product in products"
+        :key="product.sku"
+        :product="product"
+      />
+    </div>
+
+    <div v-else class="empty">No products found</div>
   </div>
 </template>
 
-<style lang="scss" scoped>
-@use '@/styles/variables.scss' as *;
-
-.products-list {
-  border: 1px solid $gray-300;
-  border-radius: 8px;
-
-  & > * + * {
-    border-top: 1px solid $gray-300;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

@@ -20,14 +20,14 @@ defineProps<{ rating: number }>()
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  width: 110px;
+  width: 118px;
   padding: 2px;
 
   span {
     display: inline-block;
-    margin-left: 2px;
+    margin-left: 4px;
+    margin-top: 2px;
     font-size: 0.75rem;
-    line-height: normal;
   }
 }
 

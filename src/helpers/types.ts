@@ -27,6 +27,13 @@ export type Product = {
   stock: number
   tags: Array<string>
   availabilityStatus: string
+  sku: string
+}
+
+export type CartItem = {
+  productId: number
+  amount: number
+  price: number
 }
 
 export type Query = Record<string, string | number | string[] | undefined>

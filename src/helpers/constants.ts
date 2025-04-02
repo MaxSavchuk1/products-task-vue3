@@ -12,5 +12,6 @@ export const PRODUCTS_SELECTED_FIELDS = [
   'availabilityStatus',
   'stock',
   'tags',
-  'rating'
+  'rating',
+  'sku'
 ]

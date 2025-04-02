@@ -19,9 +19,14 @@ export const useProductsStore = defineStore('products-store', () => {
       }
     )
 
+  const findProductById = (id: number): Product => {
+    return products.value.find(product => product.id === id)!
+  }
+
   return {
     products,
 
-    fetchProducts
+    fetchProducts,
+    findProductById
   }
 })

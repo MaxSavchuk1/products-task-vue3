@@ -2,7 +2,7 @@
 type Props = {
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
-  styleType?: 'primary' | 'secondary'
+  styleType?: 'primary' | 'secondary' | 'info'
 }
 
 withDefaults(defineProps<Props>(), {
@@ -16,8 +16,9 @@ withDefaults(defineProps<Props>(), {
   <button
     :type="type"
     :disabled="disabled"
-    :class="[$style.button, $style[styleType]]"
+    :class="['base-button', $style[styleType]]"
   >
+    <div v-if="$slots.icon"><slot name="icon" /></div>
     <slot />
   </button>
 </template>
@@ -25,25 +26,15 @@ withDefaults(defineProps<Props>(), {
 <style lang="scss" module>
 @use '@/styles/variables.scss' as *;
 
-.button {
-  color: white;
-  font-size: 0.85rem;
-  border-radius: 4px;
-  border: none;
-  padding: 8px 16px;
-  flex-shrink: 0;
-}
-
-.button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
 .primary {
   background-color: $blue-500;
 }
 
 .secondary {
-  background-color: $gray-400;
+  background-color: $blue-300;
+}
+
+.info {
+  background-color: $gray-500;
 }
 </style>
