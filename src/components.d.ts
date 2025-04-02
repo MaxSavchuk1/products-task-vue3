@@ -11,7 +11,6 @@ declare module 'vue' {
     BaseImage: typeof import('./components/BaseImage.vue')['default']
     BaseRating: typeof import('./components/BaseRating.vue')['default']
     BaseTag: typeof import('./components/BaseTag.vue')['default']
-    Cart: typeof import('./components/Cart/index.vue')['default']
     Item: typeof import('./components/ProductsCart/Item.vue')['default']
     Product: typeof import('./components/ProductsList/Product.vue')['default']
     ProductsCart: typeof import('./components/ProductsCart/index.vue')['default']

@@ -4,9 +4,17 @@ import { formatPriceUSD } from '@/helpers/utils'
 
 const { item } = defineProps<{ item: CartItem }>()
 const { findProductById } = useProductsStore()
-const { removeFromCart, increaseAmount, decreaseAmount } = useCartStore()
+const {
+  removeFromCart,
+  increaseAmount: increase,
+  decreaseAmount
+} = useCartStore()
 
 const currentProduct = computed(() => findProductById(item.productId))
+
+const increaseAmount = (productId: number) => {
+  if (currentProduct.value.stock > item.amount) increase(productId)
+}
 </script>
 
 <template>
