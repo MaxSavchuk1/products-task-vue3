@@ -80,5 +80,15 @@ const currentProduct = computed(() => findProductById(item.productId))
       }
     }
   }
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+
+    &--actions {
+      margin-left: auto;
+    }
+  }
 }
 </style>

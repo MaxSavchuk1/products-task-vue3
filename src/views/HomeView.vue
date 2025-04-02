@@ -11,5 +11,9 @@
 .my-shop {
   display: flex;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
 }
 </style>
