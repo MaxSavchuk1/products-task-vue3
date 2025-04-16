@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { formatPriceUSD } from '@/helpers/utils'
-import type { Product } from '@/helpers/types'
+import type { CreateNotification, Product } from '@/helpers/types'
 
 const { product } = defineProps<{ product: Product }>()
 
 const { isInCart, addToCart } = useCartStore()
+
+const createNotification = <CreateNotification>inject('create-notification')
 
 const buttonLabel = computed(() => {
   return isInCart(product.id) ? 'In Cart' : 'Add To Cart'
@@ -17,6 +19,10 @@ const totalInStock = computed(() =>
 const clickHandler = () => {
   if (!isInCart(product.id)) {
     addToCart(product.id, product.price)
+    createNotification({
+      type: 'success',
+      title: `${product.title} added to cart`
+    })
   }
 }
 </script>
@@ -78,7 +84,6 @@ const clickHandler = () => {
   gap: 16px;
   padding: 8px;
   flex-wrap: wrap;
-  // width: fit-content;
 
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
