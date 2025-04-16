@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { formatPriceUSD } from '@/helpers/utils'
 
+const cartStore = useCartStore()
 const { products } = storeToRefs(useProductsStore())
-const { cartProducts, totalPrice } = storeToRefs(useCartStore())
+const { cartProducts, totalPrice } = storeToRefs(cartStore)
+const { clearCart } = cartStore
 </script>
 
 <template>
@@ -18,6 +20,8 @@ const { cartProducts, totalPrice } = storeToRefs(useCartStore())
         <span>Total:</span>
         <span>{{ formatPriceUSD(totalPrice) }}</span>
       </div>
+
+      <base-button @click="clearCart">Clear cart</base-button>
     </template>
 
     <div v-else class="empty">Your cart is empty</div>
@@ -30,6 +34,6 @@ const { cartProducts, totalPrice } = storeToRefs(useCartStore())
   justify-content: space-between;
   font-size: 1.2rem;
   font-weight: 600;
-  margin-top: 10px;
+  margin: 10px 0;
 }
 </style>

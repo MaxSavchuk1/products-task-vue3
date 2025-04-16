@@ -37,6 +37,10 @@ export const useCartStore = defineStore(
 
     const decreaseAmount = (productId: number) => updateAmount(productId, -1)
 
+    const clearCart = () => {
+      cartProducts.value = []
+    }
+
     return {
       cartProducts,
       totalPrice,
@@ -45,7 +49,8 @@ export const useCartStore = defineStore(
       removeFromCart,
       isInCart,
       increaseAmount,
-      decreaseAmount
+      decreaseAmount,
+      clearCart
     }
   },
   // using persist plugin for saving cart
